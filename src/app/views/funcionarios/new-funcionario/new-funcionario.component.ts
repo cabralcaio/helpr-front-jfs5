@@ -53,6 +53,8 @@ export class NewFuncionarioComponent implements OnInit {
   public create():void{
     if(this.formNewFuncionario.valid){
       const funcionario: Funcionario = this.formNewFuncionario.value;
+      funcionario.foto = this.fotoUrl
+      console.log(funcionario.foto)
       this.funcionarioService.create(funcionario).subscribe(response =>{
         alert("Funcionario cadastrado com sucesso!");
         this.router.navigate(["/funcionarios"]);
