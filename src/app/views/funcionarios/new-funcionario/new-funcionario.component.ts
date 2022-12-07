@@ -25,12 +25,10 @@ export class NewFuncionarioComponent implements OnInit {
   constructor(
     formBuild: FormBuilder,
     private funcionarioService: FuncionarioService,
-
     private dialog: MatDialog,
     private router: Router,
-    private uploadService: UploadService
+    private uploadService: UploadService,
     private cargoService: CargoService
-
   ) { 
     this.formNewFuncionario = formBuild.group({
       nome: ['',[Validators.required]],
