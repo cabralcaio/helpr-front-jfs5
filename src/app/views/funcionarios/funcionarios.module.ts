@@ -6,6 +6,7 @@ import { FuncionariosComponent } from './funcionarios/funcionarios.component';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { NewFuncionarioComponent } from './new-funcionario/new-funcionario.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { NewFuncionarioComponent } from './new-funcionario/new-funcionario.compo
     CommonModule,
     FuncionariosRoutingModule,
     ComponentsModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ]
 })
 export class FuncionariosModule { }

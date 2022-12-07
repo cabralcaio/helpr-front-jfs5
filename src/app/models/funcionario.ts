@@ -5,5 +5,6 @@ export interface Funcionario {
     cpf: string;
     perfil: string;
     foto?: string;
-    cargo: any
+    senha: string
+    cargo: string
 }
