@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Cargo } from 'src/app/models/cargo';
 import { Funcionario } from 'src/app/models/funcionario';
+import { CargoService } from 'src/app/services/cargo.service';
 import { FuncionarioService } from 'src/app/services/funcionario.service';
 
 @Component({
@@ -13,10 +15,13 @@ export class NewFuncionarioComponent implements OnInit {
 
   public formNewFuncionario: FormGroup
 
+  public cargos: Cargo[] = [];
+
   constructor(
     formBuild: FormBuilder,
     private funcionarioService: FuncionarioService,
-    private router: Router
+    private router: Router,
+    private cargoService: CargoService
   ) { 
     this.formNewFuncionario = formBuild.group({
       nome: ['',[Validators.required]],
@@ -28,7 +33,13 @@ export class NewFuncionarioComponent implements OnInit {
   }
  
   ngOnInit(): void {
-    
+    this.initializeFieldCargo()
+  }
+
+  public initializeFieldCargo(): void {
+    this.cargoService.findAll().subscribe(cargos =>{
+      this.cargos = cargos;
+    })
   }
 
   public create():void{
