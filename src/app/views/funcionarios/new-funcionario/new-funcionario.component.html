@@ -2,30 +2,37 @@
     <ng-container>
         <h2>Cadastrar Funcionario</h2>
         <form [formGroup]="formNewFuncionario">
-            <mat-form-field class="full-width" appearance="fill">
-                <mat-label>Nome</mat-label>
-                <input type="text" name="nome" matInput placeholder="Ex. Jennifer Rosa" formControlName="nome">
-            </mat-form-field>
-            <mat-form-field class="full-width" appearance="fill">
-                <mat-label>E-mail</mat-label>
-                <input type="email" name="email" matInput placeholder="Ex. jennifer@mail.com" formControlName="email">
-            </mat-form-field>
-            <mat-form-field class="full-width" appearance="fill">
-                <mat-label>CPF</mat-label>
-                <input type="text" name="cpf" matInput placeholder="Ex. 000.000.000-00" formControlName="cpf">
-            </mat-form-field>
-            <mat-form-field class="full-width" appearance="fill">
-                <mat-label>Senha</mat-label>
-                <input type="password" name="senha" matInput formControlName="senha">
-            </mat-form-field>
-            <mat-form-field class="full-width" appearance="fill">
-                <mat-label>Cargo</mat-label>
-                <mat-select formControlName="cargo">
-                    <mat-option *ngFor="let cargo of cargos" [value]="cargo">
-                        {{cargo.nome}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
+
+                <div>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Nome</mat-label>
+                        <input type="text" name="nome" matInput placeholder="Ex. Jennifer Rosa" formControlName="nome">
+                    </mat-form-field>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>E-mail</mat-label>
+                        <input type="email" name="email" matInput placeholder="Ex. jennifer@mail.com" formControlName="email">
+                    </mat-form-field>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>CPF</mat-label>
+                        <input type="text" name="cpf" matInput placeholder="Ex. 000.000.000-00" formControlName="cpf">
+                    </mat-form-field>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Senha</mat-label>
+                        <input type="password" name="senha" matInput formControlName="senha">
+                    </mat-form-field>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Cargo</mat-label>
+                        <input type="text" name="cargo" matInput formControlName="cargo">
+                    </mat-form-field>
+        
+                    <div class="is-column">
+                        <mat-label>Insira a foto de perfil</mat-label>
+                        <input class="upload-photo" type="file" placeholder="capa" formControlName="capa" (change)="uploadFile($event)">
+                        <mat-progress-bar mode="indeterminate" *ngIf="isLoadUpload"></mat-progress-bar>
+                    </div>
+                </div>
+
+      
 
             <button type="submit" mat-raised-button color="primary" (click)="create()">Cadastrar</button>
             <a type="button" mat-raised-button color="warn" routerLink="/funcionarios">Cancelar</a>

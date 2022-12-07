@@ -5,6 +5,9 @@ import { Cargo } from 'src/app/models/cargo';
 import { Funcionario } from 'src/app/models/funcionario';
 import { CargoService } from 'src/app/services/cargo.service';
 import { FuncionarioService } from 'src/app/services/funcionario.service';
+import { UploadService } from 'src/app/services/upload.service';
+import { MatDialog } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-new-funcionario',
@@ -14,21 +17,28 @@ import { FuncionarioService } from 'src/app/services/funcionario.service';
 export class NewFuncionarioComponent implements OnInit {
 
   public formNewFuncionario: FormGroup
+  public isLoadUpload: boolean = false;
+  private fotoUrl: string = "";
 
   public cargos: Cargo[] = [];
 
   constructor(
     formBuild: FormBuilder,
     private funcionarioService: FuncionarioService,
+
+    private dialog: MatDialog,
     private router: Router,
+    private uploadService: UploadService
     private cargoService: CargoService
+
   ) { 
     this.formNewFuncionario = formBuild.group({
       nome: ['',[Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       cpf: ['', [Validators.required]],
       senha:['',[Validators.required]],
-      cargo:['',[Validators.required]]
+      cargo:['',[Validators.required]],
+      capa:[""]
     })
   }
  
@@ -53,4 +63,19 @@ export class NewFuncionarioComponent implements OnInit {
       alert("Dados inválidos")
     }
   }
+
+  public uploadFile(event: any): void {
+    console.log("chegou no uploadTS")
+    this.isLoadUpload = true;
+    const file: File = event.target.files[0];
+    this.uploadService.uploadFoto(file).subscribe(uploadResult  => {
+      this.isLoadUpload = false;
+      const storageReference = uploadResult.ref;
+      const promiseFileUrl = storageReference.getDownloadURL();
+      promiseFileUrl.then((fotoUrl: string) => {
+        this.fotoUrl = fotoUrl;
+      })
+    });
+  }
+
 }

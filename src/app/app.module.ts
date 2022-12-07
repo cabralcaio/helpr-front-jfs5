@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
@@ -27,6 +28,7 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireStorageModule,
+    MatDialogModule
 
   ],
   providers: [
