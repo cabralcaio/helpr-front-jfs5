@@ -44,4 +44,14 @@ export class FuncionarioService {
       })
     )
   }
+
+  public deletefuncionario(id: string) {
+    return this.http.delete(`${API_CONFIG.baseUrl}/funcionarios/${id}`).pipe(
+      catchError(error => {
+        console.error(error);
+        return EMPTY;
+      })
+    );
+  }
+
 }

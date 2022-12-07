@@ -27,7 +27,10 @@ export class FuncionariosComponent implements OnInit {
     })
   }
 
-  public delete(): void{
-
-  }
+  public delete(id: string): void{
+    this.funcionarioService.deletefuncionario(id).subscribe(response => {
+      console.log("apagado");
+      this.initializeTable();
+  })
+}
 }
