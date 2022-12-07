@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Cargo } from 'src/app/models/cargo';
 import { Funcionario } from 'src/app/models/funcionario';
+import { CargoService } from 'src/app/services/cargo.service';
 import { FuncionarioService } from 'src/app/services/funcionario.service';
 import { UploadService } from 'src/app/services/upload.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -18,12 +20,17 @@ export class NewFuncionarioComponent implements OnInit {
   public isLoadUpload: boolean = false;
   private fotoUrl: string = "";
 
+  public cargos: Cargo[] = [];
+
   constructor(
     formBuild: FormBuilder,
     private funcionarioService: FuncionarioService,
+
     private dialog: MatDialog,
     private router: Router,
     private uploadService: UploadService
+    private cargoService: CargoService
+
   ) { 
     this.formNewFuncionario = formBuild.group({
       nome: ['',[Validators.required]],
@@ -36,7 +43,13 @@ export class NewFuncionarioComponent implements OnInit {
   }
  
   ngOnInit(): void {
-    
+    this.initializeFieldCargo()
+  }
+
+  public initializeFieldCargo(): void {
+    this.cargoService.findAll().subscribe(cargos =>{
+      this.cargos = cargos;
+    })
   }
 
   public create():void{

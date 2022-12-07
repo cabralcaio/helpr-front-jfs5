@@ -1,3 +1,5 @@
+import { Cargo } from "./cargo";
+
 export interface Funcionario {
     id?: number;
     nome: string;
@@ -5,6 +7,6 @@ export interface Funcionario {
     cpf: string;
     perfil: string;
     foto?: string;
-    senha: string
-    cargo: string
+    senha: string;
+    cargo: Cargo;
 }

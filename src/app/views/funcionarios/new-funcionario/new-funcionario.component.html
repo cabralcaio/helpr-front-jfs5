@@ -2,6 +2,7 @@
     <ng-container>
         <h2>Cadastrar Funcionario</h2>
         <form [formGroup]="formNewFuncionario">
+
                 <div>
                     <mat-form-field class="full-width" appearance="fill">
                         <mat-label>Nome</mat-label>
@@ -30,6 +31,8 @@
                         <mat-progress-bar mode="indeterminate" *ngIf="isLoadUpload"></mat-progress-bar>
                     </div>
                 </div>
+
+      
 
             <button type="submit" mat-raised-button color="primary" (click)="create()">Cadastrar</button>
             <a type="button" mat-raised-button color="warn" routerLink="/funcionarios">Cancelar</a>
