@@ -27,14 +27,25 @@ export class FuncionarioService {
     )
   }
 
+  public findById(idFuncionario: string): Observable<Funcionario> {
+    return this.http.get<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios/${idFuncionario}`).pipe(
+      catchError(error => {
+        alert("Erro ao buscar Funcionario.");
+        console.error(error);
+        return EMPTY;
+      })
+    )
+  }
+
+
   public create(funcionario: Funcionario): Observable<Funcionario>{
     const data = {
       nome: funcionario.nome,
       email: funcionario.email,
       cpf: funcionario.cpf,
       senha: funcionario.senha,
+      foto: funcionario.foto,
       idCargo: funcionario.cargo.idCargo,
-      foto: funcionario.foto
     }
     return this.http.post<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios`, data).pipe(
       catchError(error =>{
@@ -52,6 +63,23 @@ export class FuncionarioService {
         return EMPTY;
       })
     );
+  }
+  public update(funcionario: Funcionario): Observable<Funcionario>{
+    const data = {
+      nome: funcionario.nome,
+      email: funcionario.email,
+      cpf: funcionario.cpf,
+      senha: funcionario.senha,
+      foto: funcionario.foto,
+      idCargo: funcionario.cargo.idCargo
+    }
+    return this.http.put<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios/${funcionario.id}`, data).pipe(
+      catchError(error => {
+        alert("Erro ao editar Funcionario.");
+        console.error(error);
+        return EMPTY;
+      })
+    )
   }
 
 }
