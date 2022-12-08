@@ -22,14 +22,13 @@ export class FuncionariosComponent implements OnInit {
 
   public initializeTable(): void{
     this.funcionarioService.findAll().subscribe(funcionarios =>{
-      this.dataSource = funcionarios
-      console.log(this.dataSource[2])
+      this.dataSource = funcionarios;
     })
   }
 
   public delete(id: string): void{
     this.funcionarioService.deletefuncionario(id).subscribe(response => {
-      console.log("apagado");
+      alert("apagado");
       this.initializeTable();
   })
 }

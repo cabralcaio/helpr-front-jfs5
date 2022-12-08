@@ -21,7 +21,7 @@ export class FuncionarioService {
     return this.http.get<Funcionario[]>(`${API_CONFIG.baseUrl}/funcionarios`).pipe(
       catchError(error =>{
         alert("Erro ao buscar funcionarios.");
-        console.log(error);
+        console.error(error);
         return EMPTY;
       })
     )
@@ -50,7 +50,7 @@ export class FuncionarioService {
     return this.http.post<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios`, data).pipe(
       catchError(error =>{
         alert("Erro ao cadastrar novo funcionário.");
-        console.log(error);
+        console.error(error);
         return EMPTY;
       })
     )
