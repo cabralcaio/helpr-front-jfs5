@@ -14,6 +14,14 @@
                 <i class="material-icons">perm_phone_msg</i>
                 Chamados
             </a>
+            <a mat-list-item routerLink="/funcionarios" routerLinkActive="active">
+                <i class="material-icons">support_agent</i>
+                Funcionarios
+            </a>
+            <a mat-list-item routerLink="/cargos" routerLinkActive="active">
+                <i class="material-icons">badge</i>
+                Cargos
+            </a>
             <a mat-list-item (click)="logout()" routerLinkActive="active">
                 <i class="material-icons">logout</i>
                 Logout
@@ -25,6 +33,9 @@
         <mat-toolbar color="primary">
             <button type="button" mat-icon-button (click)="drawer.toggle()">
                 <i class="material-icons">menu</i>
+            </button>
+            <button type="button" mat-icon-button (click)="changeTheme()">
+                <i class="material-icons">format_color_fill</i>
             </button>
         </mat-toolbar>
         
