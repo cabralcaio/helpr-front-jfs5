@@ -1,3 +1,4 @@
+import { FuturosCandidatosComponent } from './futuros-candidatos/futuros-candidatos.component';
 import { EditClienteComponent } from './edit-cliente/edit-cliente.component';
 import { NewClienteComponent } from './new-cliente/new-cliente.component';
 import { NgModule } from '@angular/core';
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'edit/:id',
     component: EditClienteComponent
+  },
+  {
+    path:'candidatos',
+    component: FuturosCandidatosComponent
   }
 ];
 
