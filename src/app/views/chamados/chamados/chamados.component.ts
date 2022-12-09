@@ -1,6 +1,8 @@
 import { ChamadoService } from './../../../services/chamado.service';
 import { Chamado } from './../../../models/chamado';
 import { Component, OnInit } from '@angular/core';
+import { DetailsChamadoComponent } from 'src/app/components/details-chamado/details-chamado.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-chamados',
@@ -12,7 +14,8 @@ export class ChamadosComponent implements OnInit {
   displayedColumns: string[] = ['id', 'titulo', 'cliente', 'funcionario', 'dataAbertura', 'status', 'editar', 'detalhes'];
   dataSource: Chamado[] = [];
 
-  constructor(private chamadoService: ChamadoService) { }
+  constructor(private chamadoService: ChamadoService,
+    private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.initializeTable();
@@ -23,4 +26,11 @@ export class ChamadosComponent implements OnInit {
       this.dataSource = chamados;
     });
   }
+  public openDetails(chamado:Chamado): void {
+    this.dialog.open(DetailsChamadoComponent, {
+      width: "500px",
+      data: chamado
+    });
+  }
 }
+  
