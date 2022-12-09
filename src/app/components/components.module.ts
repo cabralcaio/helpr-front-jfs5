@@ -3,10 +3,12 @@ import { MaterialModule } from './../shared/material/material.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
-    NavBarComponent
+    NavBarComponent,
+    DetailsComponent
   ],
   imports: [
     CommonModule,
@@ -14,7 +16,9 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     RouterModule
   ],
   exports: [
-    NavBarComponent
+    NavBarComponent,
+    DetailsComponent
+    
   ]
 })
 export class ComponentsModule { }

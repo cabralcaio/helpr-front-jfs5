@@ -25,7 +25,9 @@ import { EditFuncionarioComponent } from './edit-funcionario/edit-funcionario.co
     ComponentsModule,
     MaterialModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    
+   
   ]
 })
 export class FuncionariosModule { }
