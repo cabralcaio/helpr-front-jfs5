@@ -26,7 +26,10 @@ export class CargosComponent implements OnInit {
     })
   }
 
-  public delete(): void{
-    //deletar
+  public deletar(idCargo: string): void{
+    this.cargoService.deletar(idCargo).subscribe(response => {
+      alert("Cargo apagado!");
+      this.initializeTable();
+    })
   }
 }
