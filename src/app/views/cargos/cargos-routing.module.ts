@@ -1,10 +1,15 @@
-import { NgModule } from '@angular/core';
+import { EditCargoComponent } from './edit-cargo/edit-cargo.component';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CargosComponent } from './cargos/cargos.component';
 
 const routes: Routes = [
   { path: '', 
     component: CargosComponent 
+  },
+  {
+    path: 'edit/:id',
+    component: EditCargoComponent
   }
 ];
 
