@@ -28,7 +28,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireStorageModule,
-    MatDialogModule
+    MatDialogModule,
+ 
+   
 
   ],
   providers: [
