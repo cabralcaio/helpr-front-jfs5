@@ -6,20 +6,22 @@ import { Component, HostBinding, OnInit } from '@angular/core';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-  private isDark = false;
+  private static isDark = false;
+  public stateToggle = NavBarComponent.isDark
 
   @HostBinding("class")
   get themeMode() {
-    return this.isDark ? "theme-dark" : "theme-light";
+    return NavBarComponent.isDark ? "theme-dark" : "theme-light";
   }
 
   constructor() { }
 
   ngOnInit(): void {
+     this.stateToggle = NavBarComponent.isDark
   }
 
   public changeTheme(): void {
-    this.isDark ? this.isDark = false : this.isDark = true;
+    NavBarComponent.isDark ? NavBarComponent.isDark = false : NavBarComponent.isDark = true;
   }
 
   public logout(): void {
