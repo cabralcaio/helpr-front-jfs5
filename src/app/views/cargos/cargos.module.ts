@@ -5,17 +5,22 @@ import { CargosRoutingModule } from './cargos-routing.module';
 import { CargosComponent } from './cargos/cargos.component';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { MaterialModule } from 'src/app/shared/material/material.module';
+import { EditCargoComponent } from './edit-cargo/edit-cargo.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    CargosComponent
+    CargosComponent,
+    EditCargoComponent
   ],
   imports: [
     CommonModule,
     CargosRoutingModule,
     ComponentsModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class CargosModule { }

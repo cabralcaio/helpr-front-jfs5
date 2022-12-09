@@ -23,11 +23,31 @@ export class CargoService {
     )
   }
 
+  public findById(idCargo: string): Observable<Cargo> {
+    return this.http.get<Cargo>(`${API_CONFIG.baseUrl}/cargos/${idCargo}`).pipe(
+      catchError(error => {
+        alert("Error ao buscar o cargo");
+        console.error(error);
+        return EMPTY;
+      })
+    )
+  }
+
   public deletar(idCargo: string) {
     console.log(idCargo)
     return this.http.delete(`${API_CONFIG.baseUrl}/cargos/${idCargo}`).pipe(
       catchError(error => {
         alert("Error ao deletar cargo.");
+        console.error(error);
+        return EMPTY;
+      })
+    )
+  }
+
+  public update(cargo: Cargo): Observable<Cargo> {
+    return this.http.put<Cargo>(`${API_CONFIG.baseUrl}/cargos/${cargo.idCargo}`, cargo).pipe(
+      catchError(error => {
+        alert("Error ao atulizar o cargo!");
         console.error(error);
         return EMPTY;
       })

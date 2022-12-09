@@ -24,7 +24,7 @@ export class EditFuncionarioComponent implements OnInit {
         idCargo: NaN,
         nome: "",
         descricao: "",
-        salario: NaN
+        salario: ""
     }
   };
 
@@ -58,12 +58,11 @@ export class EditFuncionarioComponent implements OnInit {
   public update(formEdit: NgForm): void {
     if(formEdit.valid){
       this.funcionarioService.update(this.funcionario).subscribe(() => {
-        console.log(this.funcionario.cargo.idCargo)
         alert("Dados editados com sucesso.");
         this.router.navigate(["/funcionarios"]);
       });
     } else {
-      alert("Dados incorretos.")
+      alert("Dados incorretos!")
     }
   }
 
