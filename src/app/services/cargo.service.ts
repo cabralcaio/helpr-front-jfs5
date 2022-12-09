@@ -22,5 +22,16 @@ export class CargoService {
       })
     )
   }
+
+  public deletar(idCargo: string) {
+    console.log(idCargo)
+    return this.http.delete(`${API_CONFIG.baseUrl}/cargos/${idCargo}`).pipe(
+      catchError(error => {
+        alert("Error ao deletar cargo.");
+        console.error(error);
+        return EMPTY;
+      })
+    )
+  }
   
 }
