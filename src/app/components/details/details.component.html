@@ -3,8 +3,8 @@
         <i class="material-icons">close</i>
     </button>
     
-    <img [src]="funcionario.foto" alt="foto">
-   
+    <img [src]="funcionario.foto ||'http://localhost:61221/assets/images/avatar.png'" alt="foto">
+    
 
     <span><strong>Nome:</strong> {{funcionario.nome}}</span>
     <span><strong>E-mail:</strong> {{funcionario.email}}</span>
@@ -12,3 +12,4 @@
     <span><strong>Perfil:</strong> {{funcionario.perfil}}</span>
     <span><strong>Cargo:</strong> {{funcionario.cargo.nome}}</span>
 </div>
+

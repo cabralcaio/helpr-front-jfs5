@@ -15,9 +15,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -29,6 +31,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireStorageModule,
     MatDialogModule,
+    
  
    
 

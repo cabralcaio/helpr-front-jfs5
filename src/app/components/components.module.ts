@@ -6,11 +6,13 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { DetailsComponent } from './details/details.component';
 import { DetailsChamadoComponent } from './details-chamado/details-chamado.component';
 
+
 @NgModule({
   declarations: [
     NavBarComponent,
     DetailsComponent,
     DetailsChamadoComponent
+  
   ],
   imports: [
     CommonModule,
