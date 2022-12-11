@@ -5,11 +5,13 @@ import { CargosComponent } from './cargos/cargos.component';
 
 const routes: Routes = [
   { path: '', 
-    component: CargosComponent 
+    component: CargosComponent,
+    title:'Helpr | Cargos'
   },
   {
     path: 'edit/:id',
-    component: EditCargoComponent
+    component: EditCargoComponent,
+    title:'Helpr | Editar Cargo'
   }
 ];
 

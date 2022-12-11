@@ -7,15 +7,18 @@ import { NewFuncionarioComponent } from './new-funcionario/new-funcionario.compo
 const routes: Routes = [
   { 
     path: '', 
-    component: FuncionariosComponent 
+    component: FuncionariosComponent,
+    title:'Helpr | Funcionários'
   },
   {
     path:'new',
-    component:NewFuncionarioComponent
+    component:NewFuncionarioComponent,
+    title:'Helpr | Cadastrar Funcionário'
   },
   {
     path: 'edit/:id',
-    component: EditFuncionarioComponent
+    component: EditFuncionarioComponent,
+    title:'Helpr | Editar Funcionário'
   }
 ];
 
