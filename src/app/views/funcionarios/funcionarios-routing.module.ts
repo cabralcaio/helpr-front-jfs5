@@ -11,11 +11,13 @@ const routes: Routes = [
   },
   {
     path:'new',
-    component:NewFuncionarioComponent
+    component:NewFuncionarioComponent,
+    title:"Helpr | Cadastrar Funcionário"
   },
   {
     path: 'edit/:id',
-    component: EditFuncionarioComponent
+    component: EditFuncionarioComponent,
+    title:"Helpr | Editar Funcionário"
   }
 ];
 

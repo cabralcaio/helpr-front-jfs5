@@ -9,7 +9,8 @@ const routes: Routes = [
   },
   {
     path: 'edit/:id',
-    component: EditCargoComponent
+    component: EditCargoComponent,
+    title:" Helpr | Editar Cargo"
   }
 ];
 

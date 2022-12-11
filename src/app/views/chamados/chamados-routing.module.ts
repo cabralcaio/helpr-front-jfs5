@@ -11,11 +11,13 @@ const routes: Routes = [
   },
   {
     path: 'new',
-    component: NewChamadoComponent
+    component: NewChamadoComponent,
+    title:"Helpr | Cadastrar Chamado"
   },
   {
     path: 'edit/:id',
-    component: EditChamadoComponent
+    component: EditChamadoComponent,
+    title:"Helpr | Editar Chamado"
   }
 ];
 

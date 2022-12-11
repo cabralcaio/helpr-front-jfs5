@@ -12,15 +12,18 @@ const routes: Routes = [
   },
   {
     path: 'new',
-    component: NewClienteComponent
+    component: NewClienteComponent,
+    title:"Helpr | Cadastrar Cliente"
   },
   {
     path: 'edit/:id',
-    component: EditClienteComponent
+    component: EditClienteComponent,
+    title:"Helpr | Editar Cliente"
   },
   {
     path:'candidatos',
-    component: FuturosCandidatosComponent
+    component: FuturosCandidatosComponent,
+    title:"Helpr | Futuros Candidatos"
   }
 ];
 
