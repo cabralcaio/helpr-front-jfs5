@@ -1,6 +1,7 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { Component, HostBinding, Inject, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-nav-bar',
@@ -13,17 +14,22 @@ export class NavBarComponent implements OnInit {
 
   @HostBinding("class")
   get themeMode() {
+    const hostClass = NavBarComponent.isDark ? "theme-dark" : "theme-light";
+    this.renderer.setAttribute(this.document.body, 'class', hostClass);
     return NavBarComponent.isDark ? "theme-dark" : "theme-light";
   }
 
   constructor(
     private authService: AuthService,
     private router: Router,
+    @Inject(DOCUMENT) private document: Document, private renderer: Renderer2
   ) { }
 
   ngOnInit(): void {
      this.stateToggle = NavBarComponent.isDark
+     this.renderer.setAttribute(this.document.body, 'class', 'theme-light');
   }
+
 
   public changeTheme(): void {
     NavBarComponent.isDark ? NavBarComponent.isDark = false : NavBarComponent.isDark = true;
