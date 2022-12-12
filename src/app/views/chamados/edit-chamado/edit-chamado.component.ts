@@ -47,6 +47,7 @@ export class EditChamadoComponent implements OnInit {
     private route: ActivatedRoute,
     private chamadoService: ChamadoService,
     private clienteService: ClienteService,
+    private router: Router
     
   ) { }
 
@@ -91,6 +92,7 @@ export class EditChamadoComponent implements OnInit {
       this.chamadoService.update(this.chamado).subscribe(
         chamado => {
         alert("Chamado editado.");
+        this.router.navigate(["/chamados"]);
       });
     }
     else {
