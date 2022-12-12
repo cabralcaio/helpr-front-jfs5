@@ -1,4 +1,6 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -14,7 +16,10 @@ export class NavBarComponent implements OnInit {
     return NavBarComponent.isDark ? "theme-dark" : "theme-light";
   }
 
-  constructor() { }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
      this.stateToggle = NavBarComponent.isDark
@@ -25,6 +30,9 @@ export class NavBarComponent implements OnInit {
   }
 
   public logout(): void {
-    // LOGOUT
+    this.authService.logout().subscribe(response => {
+      alert("Até logo!");
+      this.router.navigate(["/login"]);
+    });
   }
 }
