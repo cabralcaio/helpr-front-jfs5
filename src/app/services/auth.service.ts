@@ -3,9 +3,10 @@ import { Token } from './../models/token';
 import { Credenciais } from './../models/credenciais';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, EMPTY } from 'rxjs';
+import { Observable, EMPTY, from } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,10 @@ export class AuthService {
 
   private jwt: JwtHelperService = new JwtHelperService();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private firebaseAuth: AngularFireAuth,
+
+    ) { }
 
   public authenticate(credenciais: Credenciais): Observable<Token> {
     return this.http.post<Token>(`${API_CONFIG.baseUrl}/auth/login`, credenciais).pipe(
@@ -36,5 +40,10 @@ export class AuthService {
       flag = !this.jwt.isTokenExpired(token);
     }
     return flag;
+  }
+
+  logout() {
+    const promise = this.firebaseAuth.signOut();
+    return from(promise);
   }
 }
