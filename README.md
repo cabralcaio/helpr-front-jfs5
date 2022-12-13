@@ -32,7 +32,7 @@
 
 <a href="https://github.com/cabralcaio">
 
-<img src="./src/assets/images/mesdtn.png"/><br>
+<img width="200px" src="./src/assets/images/mesdtn.png"/><br>
 
 <sub>
 
